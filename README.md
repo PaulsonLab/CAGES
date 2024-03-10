@@ -12,7 +12,8 @@ gpytorch \
 pytorch \
 pyODE \
 matplotlib \
-yaml
+yaml\
+gymnasium
 
 # Vanilla BO (Expected Improvement)
 Run Vanilla_BO.py
