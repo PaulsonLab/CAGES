@@ -15,7 +15,7 @@ matplotlib \
 yaml\
 gymnasium
 
-# Vanilla BO (Expected Improvement)
+# Vanilla BO
 Run Vanilla_BO.py
 
 # GIBO and ARS
