@@ -33,7 +33,7 @@ class RL_fun():
             description='Run optimization with given optimization method.'
         )
         parser.add_argument('-c', '--config ', type=str, help='Path to config file.')
-        parser.set_defaults(config='/home/tang.1856/Jonathan/LVGP/LVGP-main/configs/rl_experiment/cartpole/gibo_10runs.yaml')
+        parser.set_defaults(config='/home/tang.1856/Jonathan/LVGP/LVGP-main/configs/rl_experiment/cartpole/gibo_10runs.yaml') # need to change to user's local path
       
         
         args = parser.parse_args()
