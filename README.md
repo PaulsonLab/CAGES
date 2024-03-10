@@ -13,6 +13,7 @@ matplotlib \
 yaml
 
 # Vanilla BO (Expected Improvement)
+Run Vanilla_BO.py
 
 # CAGES 
 Rosenbrock Test Function
