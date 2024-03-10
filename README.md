@@ -17,6 +17,9 @@ yaml
 # Vanilla BO (Expected Improvement)
 Run Vanilla_BO.py
 
+# GIBO and ARS
+Run local_GIBO_exe.py under the GIBO file
+
 # CAGES 
 Rosenbrock Test Function
 ------------
