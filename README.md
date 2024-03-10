@@ -1,7 +1,7 @@
 # CAGES
 
 # Dependencies
-NumPy
+NumPy\\
 SciPy
 BoTorch
 gpytorch
