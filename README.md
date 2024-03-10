@@ -9,6 +9,8 @@ Multi-Fidelity Bayesian Optimization
 [acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
 [Vanilla_BO](URL): Run this file to execute vanilla BO with expected imrpovement. User can specify which problem to be optimized in line 31-33.\
 [GIBO\local_GIBO_exe](URL): Run this file to execute GIBO or ARS algorithm. User can specify which problem to be optimized in line 43-45 and specify GIBO or ARS in line 47.\
+[LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al.\
+[lvgp_grad](URL): Calculate the gradient for the LVGP model.\
 [lvgp_optimization_new_Rosenbrock](URL): Run this file to execute CAGES for the multi-information Rosenbrock test function.\
 [lvgp_optimization_new_OTL](URL):Run this file to execute CAGES for the multi-information OTL test function.\
 [lvgp_optimization_new_RL](URL):Run this file to execute CAGES for the multi-information Cartpole RL control problem.\
