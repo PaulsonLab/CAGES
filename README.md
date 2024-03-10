@@ -12,6 +12,9 @@ pyODE \
 matplotlib \
 yaml
 
+# Vanilla BO (Expected Improvement)
+
+# CAGES 
 Rosenbrock Test Function
 ------------
 
