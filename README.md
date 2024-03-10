@@ -10,3 +10,4 @@ gpytorch \
 pytorch \
 pyODE \
 matplotlib \
+yaml
