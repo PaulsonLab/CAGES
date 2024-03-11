@@ -18,22 +18,5 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [lvgp_optimization_new_RL](URL):Run this file to execute CAGES for the multi-information Cartpole RL control problem.\
 
 # Reference
-@article{muller2021local,
-  title={Local policy search with Bayesian optimization},
-  author={M{\"u}ller, Sarah and von Rohr, Alexander and Trimpe, Sebastian},
-  journal={Advances in Neural Information Processing Systems},
-  volume={34},
-  pages={20708--20720},
-  year={2021}
-}
-
-@article{zhang2020latent,
-  title={A latent variable approach to Gaussian process modeling with qualitative and quantitative factors},
-  author={Zhang, Yichi and Tao, Siyu and Chen, Wei and Apley, Daniel W},
-  journal={Technometrics},
-  volume={62},
-  number={3},
-  pages={291--302},
-  year={2020},
-  publisher={Taylor \& Francis}
-}
+Müller, S., von Rohr, A., & Trimpe, S. (2021). Local policy search with Bayesian optimization. Advances in Neural Information Processing Systems, 34, 20708-20720.
+Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.
