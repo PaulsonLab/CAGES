@@ -51,6 +51,8 @@ Please run the following command to load saved numpy files and generate plots. U
 ```sh
 python Plotting.py
 ```
+![image](https://github.com/PaulsonLab/CAGES/assets/101409886/aa7c160a-8474-47c5-9e2f-589516dba528)
+
 # Reference
 Müller, S., von Rohr, A., & Trimpe, S. (2021). Local policy search with Bayesian optimization. Advances in Neural Information Processing Systems, 34, 20708-20720.\
 Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.
