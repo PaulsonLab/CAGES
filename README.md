@@ -15,14 +15,14 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 # Usage
 Vanilla BO
 ------------------------------
-Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem to be optimized in line 31-33.
+Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, OTL, or Cartpole) to be optimized in line 31-33.
 ```sh
 python Vanilla_BO.py
 ```
 
 GIBO and ARS
 ------------------------------
-Run this following command to execute GIBO or ARS algorithm. User can specify which problem to be optimized in line 37-39 and specify GIBO or ARS in line 41.
+Run this following command to execute GIBO or ARS algorithm. User can specify which problem (Rosenbrock, OTL, or Cartpole) to be optimized in line 37-39 and specify GIBO or ARS in line 41.
 ```sh
 cd GIBO
 python local_GIBO_exe.py
