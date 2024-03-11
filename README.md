@@ -65,6 +65,7 @@ Please run the following command to load saved numpy files and generate plots. U
 python Plotting.py
 ```
 Here is an example plot for the Rosenbrock problem:
+
 ![image](https://github.com/PaulsonLab/CAGES/assets/101409886/aa7c160a-8474-47c5-9e2f-589516dba528)
 
 # Reference
