@@ -47,7 +47,7 @@ python lvgp_optimization_new_RL.py
 
 Plotting
 ------------------------------
-Please run the following command to generate plots.
+Please run the following command to load saved numpy files and generate plots. User may need to modify the path to load the file.
 ```sh
 python Plotting.py
 ```
