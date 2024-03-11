@@ -15,7 +15,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 # Usage
 Vanilla BO
 ------------------------------
-Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, OTL, or Cartpole) to be optimized in line 31-33.\
+Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, OTL, or Cartpole) to be optimized in line 31-33.\\
 Two numpy files (EI_cost.np/EI_reward.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 ```sh
 python Vanilla_BO.py
