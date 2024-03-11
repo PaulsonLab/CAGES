@@ -9,23 +9,20 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [src2\environment_api](URL): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
 [RL_function](URL): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
 [acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
-[Vanilla_BO](URL): Run this file to execute vanilla BO with expected imrpovement. User can specify which problem to be optimized in line 31-33.\
-[GIBO\local_GIBO_exe](URL): Run this file to execute GIBO or ARS algorithm. User can specify which problem to be optimized in line 37-39 and specify GIBO or ARS in line 41.\
 [LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al.\
 [lvgp_grad](URL): Calculate the gradient for the LVGP model.\
-[lvgp_optimization_new_Rosenbrock](URL): Run this file to execute CAGES for the multi-information Rosenbrock test problem.\
-[lvgp_optimization_new_OTL](URL):Run this file to execute CAGES for the multi-information OTL test problem.\
-[lvgp_optimization_new_RL](URL):Run this file to execute CAGES for the multi-information Cartpole RL control problem.\
 
 # Usage
 Vanilla BO
 ------------------------------
+Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem to be optimized in line 31-33.
 ```sh
 python Vanilla_BO.py
 ```
 
 GIBO and ARS
 ------------------------------
+Run this following command to execute GIBO or ARS algorithm. User can specify which problem to be optimized in line 37-39 and specify GIBO or ARS in line 41.
 ```sh
 python GIBO\local_GIBO_exe.py
 ```
@@ -35,6 +32,16 @@ CAGES
 Run the following command to execute CAGES for the multi-information Rosenbrock test problem.
 ```sh
 python lvgp_optimization_new_Rosenbrock.py
+```
+
+Run the following command to execute CAGES for the multi-information OTL test problem.
+```sh
+python lvgp_optimization_new_OTL.py
+```
+
+Run the following command to execute CAGES for the multi-information Cartpole RL control problem.
+```sh
+python lvgp_optimization_new_RL.py
 ```
 
 # Reference
