@@ -45,6 +45,12 @@ Run the following command to execute CAGES for the multi-information Cartpole RL
 python lvgp_optimization_new_RL.py
 ```
 
+Plotting
+------------------------------
+Please run the following command to generate plots.
+```sh
+python Plotting.py
+```
 # Reference
 Müller, S., von Rohr, A., & Trimpe, S. (2021). Local policy search with Bayesian optimization. Advances in Neural Information Processing Systems, 34, 20708-20720.\
 Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.
