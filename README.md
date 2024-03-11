@@ -22,6 +22,7 @@ Vanilla BO
 ------------------------------
 ```sh
 python run_synthetic_experiment.py
+```
 
 GIBO and ARS
 ------------------------------
