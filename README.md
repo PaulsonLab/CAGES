@@ -20,6 +20,8 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 # Usage
 Vanilla BO
 ------------------------------
+```sh
+python run_synthetic_experiment.py
 
 GIBO and ARS
 ------------------------------
