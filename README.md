@@ -10,7 +10,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [RL_function](URL): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
 [acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
 [Vanilla_BO](URL): Run this file to execute vanilla BO with expected imrpovement. User can specify which problem to be optimized in line 31-33.\
-[GIBO\local_GIBO_exe](URL): Run this file to execute GIBO or ARS algorithm. User can specify which problem to be optimized in line 43-45 and specify GIBO or ARS in line 47.\
+[GIBO\local_GIBO_exe](URL): Run this file to execute GIBO or ARS algorithm. User can specify which problem to be optimized in line 37-39 and specify GIBO or ARS in line 41.\
 [LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al.\
 [lvgp_grad](URL): Calculate the gradient for the LVGP model.\
 [lvgp_optimization_new_Rosenbrock](URL): Run this file to execute CAGES for the multi-information Rosenbrock test problem.\
