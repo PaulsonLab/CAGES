@@ -21,14 +21,21 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 Vanilla BO
 ------------------------------
 ```sh
-python run_synthetic_experiment.py
+python Vanilla_BO.py
 ```
 
 GIBO and ARS
 ------------------------------
+```sh
+python GIBO\local_GIBO_exe.py
+```
 
 CAGES
 ------------------------------
+Run the following command to execute CAGES for the multi-information Rosenbrock test problem.
+```sh
+python lvgp_optimization_new_Rosenbrock.py
+```
 
 # Reference
 Müller, S., von Rohr, A., & Trimpe, S. (2021). Local policy search with Bayesian optimization. Advances in Neural Information Processing Systems, 34, 20708-20720.\
