@@ -24,7 +24,8 @@ GIBO and ARS
 ------------------------------
 Run this following command to execute GIBO or ARS algorithm. User can specify which problem to be optimized in line 37-39 and specify GIBO or ARS in line 41.
 ```sh
-python GIBO\local_GIBO_exe.py
+cd GIBO
+python local_GIBO_exe.py
 ```
 
 CAGES
