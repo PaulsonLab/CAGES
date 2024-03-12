@@ -212,6 +212,6 @@ if __name__ == '__main__':
     yy = np.array([[tensor for tensor in sublist] for sublist in best_Y_list])
     
     # Save Results
-    np.save('Piston_cost_CAGES.npy',xx)
-    np.save('Piston_reward_CAGES.npy',yy)
+    np.save('OTL_cost_CAGES.npy',xx)
+    np.save('OTL_reward_CAGES.npy',yy)
    
