@@ -6,7 +6,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 
 # Codes for the repo
 [cartpole](https://github.com/PaulsonLab/CAGES/blob/1c9525c7246ac3c7511f79fa02d784f689c59aed/cartpole.py) : Please replace this file with the original cartpole.py file inside the gymnasium package (~/gymnasium/envs/classic_control/cartpole.py) to enable the changes of step time (tau).\
-[src2\environment_api](URL): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
+[src\environment_api](URL): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
 [RL_function](URL): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
 [acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
 [LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [1]\
