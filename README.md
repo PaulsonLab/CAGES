@@ -10,7 +10,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [RL_function](URL): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
 [acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
 [LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al.\
-[lvgp_grad](URL): Calculate the gradient for the LVGP model.\
+[lvgp_grad](URL): Calculate the gradient for the LVGP model (Jacobian LVGP).
 
 # Usage
 Vanilla BO
