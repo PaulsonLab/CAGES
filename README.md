@@ -9,7 +9,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [src2\environment_api](URL): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
 [RL_function](URL): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
 [acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
-[LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al.\
+[LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [1]\
 [lvgp_grad](URL): Calculate the gradient for the LVGP model (Jacobian LVGP).
 
 # Usage
@@ -70,5 +70,5 @@ Here is an example plot for the Rosenbrock problem that user can reproduce based
 ![image](https://github.com/PaulsonLab/CAGES/assets/101409886/aa7c160a-8474-47c5-9e2f-589516dba528)
 
 # Reference
-Müller, S., von Rohr, A., & Trimpe, S. (2021). Local policy search with Bayesian optimization. Advances in Neural Information Processing Systems, 34, 20708-20720.\
-Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.
+[1] Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.\
+[2] Müller, S., von Rohr, A., & Trimpe, S. (2021). Local policy search with Bayesian optimization. Advances in Neural Information Processing Systems, 34, 20708-20720.
