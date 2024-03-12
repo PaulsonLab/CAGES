@@ -39,7 +39,7 @@ Run the following command to execute CAGES for the multi-information Rosenbrock 
 Two numpy files (Rosenbrock_cost_CAGES.np/Rosenbrock_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 
 ```sh
-python lvgp_optimization_new_Rosenbrock.py
+python CAGES_Rosenbrock.py
 ```
 
 Run the following command to execute CAGES for the multi-information OTL test problem.
@@ -47,15 +47,15 @@ Run the following command to execute CAGES for the multi-information OTL test pr
 Two numpy files (OTL_cost_CAGES.np/OTL_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 
 ```sh
-python lvgp_optimization_new_OTL.py
+python CAGES_OTL.py
 ```
 
 Run the following command to execute CAGES for the multi-information Cartpole RL control problem.
 
-Two numpy files (Cartpole_cost_CAGES.np/Cartpole_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
+Two numpy files (cartpole_cost_CAGES.np/cartpole_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 
 ```sh
-python lvgp_optimization_new_RL.py
+python CAGES_RL.py
 ```
 
 Plotting
