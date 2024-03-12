@@ -8,7 +8,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [cartpole](https://github.com/PaulsonLab/CAGES/blob/1c9525c7246ac3c7511f79fa02d784f689c59aed/cartpole.py) : Please replace this file with the original cartpole.py file inside the gymnasium package (~/gymnasium/envs/classic_control/cartpole.py) to enable the changes of step time (tau).\
 [src\environment_api](https://github.com/PaulsonLab/CAGES/blob/48ca4862a56500a48b9537c3e8df5c0817c4a78e/src/environment_api.py): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
 [RL_function](https://github.com/PaulsonLab/CAGES/blob/17c76eec1deb53155084a1522d5428578c45aabc/RL_function.py): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
-[acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
+[acquisition_function](https://github.com/PaulsonLab/CAGES/blob/ffcbda478eebcaa821d21dd29a04d67ec764e90a/acquisition_function.py): Custom entropy-based acquisition function for gradient information.\
 [LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [1]\
 [lvgp_grad](URL): Calculate the gradient for the LVGP model (Jacobian LVGP).
 
