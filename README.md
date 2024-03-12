@@ -7,10 +7,10 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 # Codes for the repo
 [cartpole](https://github.com/PaulsonLab/CAGES/blob/1c9525c7246ac3c7511f79fa02d784f689c59aed/cartpole.py) : Please replace this file with the original cartpole.py file inside the gymnasium package (~/gymnasium/envs/classic_control/cartpole.py) to enable the changes of step time (tau).\
 [src\environment_api](https://github.com/PaulsonLab/CAGES/blob/48ca4862a56500a48b9537c3e8df5c0817c4a78e/src/environment_api.py): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
-[RL_function](URL): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
-[acquisition_function](URL): Custom entropy-based acquisition function for gradient information.\
-[LVGP_main](URL): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [1]\
-[lvgp_grad](URL): Calculate the gradient for the LVGP model (Jacobian LVGP).
+[RL_function](https://github.com/PaulsonLab/CAGES/blob/17c76eec1deb53155084a1522d5428578c45aabc/RL_function.py): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
+[acquisition_function](https://github.com/PaulsonLab/CAGES/blob/ffcbda478eebcaa821d21dd29a04d67ec764e90a/acquisition_function.py): Custom entropy-based acquisition function for gradient information.\
+[LVGP_main](https://github.com/PaulsonLab/CAGES/blob/c2f5c788b85fa01396006f92afe6f9e294b05673/LVGP_main.py): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [1]\
+[lvgp_grad](https://github.com/PaulsonLab/CAGES/blob/78f5b22ffd23f0b5c59f799662560d22df0bae9f/lvgp_grad.py): Calculate the gradient for the LVGP model (Jacobian LVGP).
 
 # Usage
 Vanilla BO
@@ -39,7 +39,7 @@ Run the following command to execute CAGES for the multi-information Rosenbrock 
 Two numpy files (Rosenbrock_cost_CAGES.np/Rosenbrock_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 
 ```sh
-python lvgp_optimization_new_Rosenbrock.py
+python CAGES_Rosenbrock.py
 ```
 
 Run the following command to execute CAGES for the multi-information OTL test problem.
@@ -47,15 +47,15 @@ Run the following command to execute CAGES for the multi-information OTL test pr
 Two numpy files (OTL_cost_CAGES.np/OTL_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 
 ```sh
-python lvgp_optimization_new_OTL.py
+python CAGES_OTL.py
 ```
 
 Run the following command to execute CAGES for the multi-information Cartpole RL control problem.
 
-Two numpy files (Cartpole_cost_CAGES.np/Cartpole_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
+Two numpy files (cartpole_cost_CAGES.np/cartpole_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 
 ```sh
-python lvgp_optimization_new_RL.py
+python CAGES_RL.py
 ```
 
 Plotting
