@@ -23,6 +23,8 @@ A parity plot and an estimated 2D LVs z = (z1, z2) plot will be generated.
 ```sh
 python Parity_Mapping_LVGP.py
 ```
+
+You should get the following two figures by executing the above command.
 <img src='figure/parity.png' width='400'>
 <img src='figure/latent_mapping.png' width='400'>
 
