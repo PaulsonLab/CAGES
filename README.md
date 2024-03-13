@@ -9,7 +9,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [src\environment_api](https://github.com/PaulsonLab/CAGES/blob/48ca4862a56500a48b9537c3e8df5c0817c4a78e/src/environment_api.py): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
 [RL_function](https://github.com/PaulsonLab/CAGES/blob/17c76eec1deb53155084a1522d5428578c45aabc/RL_function.py): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
 [acquisition_function](https://github.com/PaulsonLab/CAGES/blob/ffcbda478eebcaa821d21dd29a04d67ec764e90a/acquisition_function.py): Custom entropy-based acquisition function for gradient information.\
-[LVGP_main](https://github.com/PaulsonLab/CAGES/blob/c2f5c788b85fa01396006f92afe6f9e294b05673/LVGP_main.py): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [1](https://arxiv.org/abs/1806.07504)\
+[LVGP_main](https://github.com/PaulsonLab/CAGES/blob/c2f5c788b85fa01396006f92afe6f9e294b05673/LVGP_main.py): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [[1]](https://arxiv.org/abs/1806.07504)\
 [lvgp_grad](https://github.com/PaulsonLab/CAGES/blob/78f5b22ffd23f0b5c59f799662560d22df0bae9f/lvgp_grad.py): Calculate the gradient for the LVGP model (Jacobian LVGP).
 [test_function](https://github.com/PaulsonLab/CAGES/blob/96d4cb9009895b2f90c90823bb91f333cebe4880/test_function.py): Test problem studied in this paper, including multi-information sources Rosenbrock and OTL.
 
