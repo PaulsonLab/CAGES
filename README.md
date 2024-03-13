@@ -14,7 +14,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [test_function](https://github.com/PaulsonLab/CAGES/blob/96d4cb9009895b2f90c90823bb91f333cebe4880/test_function.py): Test problem studied in this paper, including multi-information sources Rosenbrock and OTL.
 
 # Usage
-LCGP fitting
+LVGP fitting
 ------------------------------
 Run the following command to fit a LVGP model with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 4 level) OTL function.
 A parity plot and an estimated 2D LVs z = (z1, z2) plot will be generated. 
