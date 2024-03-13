@@ -67,7 +67,7 @@ Two numpy files (cartpole_cost_CAGES.np/cartpole_reward_CAGES.np) will be saved 
 python CAGES_RL.py
 ```
 
-Plotting
+Plotting Results
 ------------------------------
 Please run the following command to load saved numpy files and generate plots. User may need to modify the path to load the file.
 ```sh
