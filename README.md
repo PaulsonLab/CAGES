@@ -14,6 +14,8 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [test_function](https://github.com/PaulsonLab/CAGES/blob/96d4cb9009895b2f90c90823bb91f333cebe4880/test_function.py): Test problem studied in this paper, including multi-information sources Rosenbrock and OTL.
 
 # Usage
+We provide the code scripts for fitting the LVGP model and execute different BO algorithm including Vanillo BO, GIBO, and CAGES. Augmented random search algorithm (ARS) is also provided.
+
 LVGP fitting
 ------------------------------
 Run the following command to fit a LVGP model with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 4 level) OTL function.
