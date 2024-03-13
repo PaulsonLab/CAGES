@@ -22,7 +22,7 @@ A parity plot and an estimated 2D LVs z = (z1, z2) plot will be generated.
 python Parity_Mapping_LVGP.py
 ```
 
-![image](https://ibb.co/Sf5Sjwc | width=100)
+![](https://ibb.co/Sf5Sjwc | width=100)
 ![image](https://github.com/PaulsonLab/CAGES/assets/101409886/d253f71b-c441-4945-9f29-d054b5dc092d)
 
 Vanilla BO
