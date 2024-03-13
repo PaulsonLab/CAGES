@@ -11,8 +11,17 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [acquisition_function](https://github.com/PaulsonLab/CAGES/blob/ffcbda478eebcaa821d21dd29a04d67ec764e90a/acquisition_function.py): Custom entropy-based acquisition function for gradient information.\
 [LVGP_main](https://github.com/PaulsonLab/CAGES/blob/c2f5c788b85fa01396006f92afe6f9e294b05673/LVGP_main.py): Implementation of the Latent Variable Gaussian Process (LVGP) model by Zhang et al. [1]\
 [lvgp_grad](https://github.com/PaulsonLab/CAGES/blob/78f5b22ffd23f0b5c59f799662560d22df0bae9f/lvgp_grad.py): Calculate the gradient for the LVGP model (Jacobian LVGP).
+[test_function](https://github.com/PaulsonLab/CAGES/blob/96d4cb9009895b2f90c90823bb91f333cebe4880/test_function.py): Test problem studied in this paper, including multi-information sources Rosenbrock and OTL.
 
 # Usage
+LCGP fitting
+------------------------------
+Run the following command to fit a LVGP model with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 4 level) OTL function.
+A parity plot and an estimated 2D LVs z = (z1, z2) plot will be generated. 
+```sh
+python Vanilla_BO.py
+```
+
 Vanilla BO
 ------------------------------
 Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, OTL, or Cartpole) to be optimized in line 31-33.
