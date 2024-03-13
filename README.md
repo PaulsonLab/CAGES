@@ -25,6 +25,7 @@ python Parity_Mapping_LVGP.py
 ```
 
 User should get the following two figures by executing the above command.
+
 <img src='figure/parity.png' width='400'>
 <img src='figure/latent_mapping.png' width='400'>
 
