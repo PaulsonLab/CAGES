@@ -19,7 +19,7 @@ LCGP fitting
 Run the following command to fit a LVGP model with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 4 level) OTL function.
 A parity plot and an estimated 2D LVs z = (z1, z2) plot will be generated. 
 ```sh
-python Vanilla_BO.py
+python Parity_Mapping_LVGP.py
 ```
 
 Vanilla BO
