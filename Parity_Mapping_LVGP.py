@@ -14,7 +14,7 @@ from LVGP_main import LVGP
 from pyDOE import lhs
 import matplotlib.pyplot as plt
 
-
+np.random.seed(0)
 N_l1 = 5 # number of data for the first level
 N_l2 = 5
 N_l3 = 5
