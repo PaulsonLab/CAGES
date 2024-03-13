@@ -14,7 +14,7 @@ Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106
 [test_function](https://github.com/PaulsonLab/CAGES/blob/96d4cb9009895b2f90c90823bb91f333cebe4880/test_function.py): Test problem studied in this paper, including multi-information sources Rosenbrock and OTL.
 
 # Usage
-We provide the code scripts for fitting the LVGP model and execute different BO algorithm including Vanillo BO, GIBO, and CAGES. Augmented random search algorithm (ARS) is also provided.
+We provide the code scripts for fitting the LVGP model and execution of different BO algorithm including Vanillo BO, GIBO, and CAGES. Augmented random search algorithm (ARS) is also provided.
 
 LVGP fitting
 ------------------------------
