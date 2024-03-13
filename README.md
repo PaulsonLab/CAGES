@@ -21,8 +21,8 @@ A parity plot and an estimated 2D LVs z = (z1, z2) plot will be generated.
 ```sh
 python Parity_Mapping_LVGP.py
 ```
-<img src='figure/parity.png' width='500'>
-<img src='figure/latent_mapping.png' width='500'>
+<img src='figure/parity.png' width='400'>
+<img src='figure/latent_mapping.png' width='400'>
 
 Vanilla BO
 ------------------------------
@@ -78,7 +78,7 @@ python Plotting.py
 ```
 Here is an example plot for the Rosenbrock problem that user can reproduce based on the np files under ~\Results\Rosenbrock:
 
-<img src='figure/Rosenbrock.png' width='500'>
+<img src='figure/Rosenbrock.png' width='400'>
 
 # Reference
 [1] Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.\
