@@ -102,9 +102,11 @@ y_pred = LVGP_class.lvgp_predict(X_te, model)['Y_hat'] # predicted value based o
 ##############################################################################################################################################################
 # Plotting (Parity)
 plt.scatter(Y_te, y_pred)
+plt.plot([min(Y_te), max(Y_te)], [min(Y_te), max(Y_te)], 'k--', label='Ideal Fit') 
 plt.xlabel('True value')
 plt.ylabel('predicted value')
 plt.title('Parity Plot')
+plt.grid(True)
 
 # Splitting the array into x and y coordinates
 xx = latent_variable[::2]  
