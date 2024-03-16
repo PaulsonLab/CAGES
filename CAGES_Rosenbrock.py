@@ -49,7 +49,6 @@ if __name__ == '__main__':
         ub = np.array([2]*(dim)) # ub for Rosenbrock
               
         cost = [10,1] # cost function for Rosenbrock        
-        s = [0.9, 0.8] # define the s vale for each level (Rosenbrock)
 
         
         if ind_qual is not None:
@@ -84,23 +83,11 @@ if __name__ == '__main__':
           
         X = np.concatenate((X_l1, X_l2))
         X = np.concatenate((X, X_te)) # need to include the estimated point into the training data   
-         
-        X1 = X.copy()
-    
-        # Convert the level to s val as to calculate the function value
-        X1[X1[:, -1] == 2, -1] = s[0]
-        X1[X1[:, -1] == 3, -1] = s[1]
               
-        Y = fun(torch.tensor(X1)).numpy() # calculate the true function value
+        Y = fun(torch.tensor(X)).numpy() # calculate the true function value
         best_Y_list[seed].append(float(Y[-1]))
-         
-        X1_te = X_te.copy()
-        XX = torch.tensor(X1_te).requires_grad_()
-    
-        X1_te[X1_te[:, -1] == 2, -1] = s[0]
-        X1_te[X1_te[:, -1] == 3, -1] = s[1]
-        
-        Y_te = fun(torch.tensor(X1_te)).numpy()
+                 
+        Y_te = fun(torch.tensor(X_te)).numpy()
                    
         cost_list[seed].append(0)
         accu_cost = 0 # accumulated cost
@@ -152,9 +139,6 @@ if __name__ == '__main__':
                     query_x = np.append(query_x, query_level)
                     
                 X = np.concatenate((X,np.array([query_x])))
-                
-                query_x[query_x[-1] == 2, -1] = s[0] # convert the qualatative level to s value
-                query_x[query_x[-1] == 3, -1] = s[1] # convert the qualatative level to s value 
                 query_y = fun(torch.tensor(query_x.reshape(1,-1))).numpy()
                                     
                 accu_cost+=cost[int(query_level-1)] 
