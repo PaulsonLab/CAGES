@@ -12,6 +12,7 @@ class Rosenbrock():
         self.dim=dim
         self.LVGP = LVGP
     def __call__(self,X):
+        X[X[:, -1] == 2, -1] = 0.9
         fun_val = 0
         for d in range(1,self.dim):
             X_curr = X[..., d-1:d]
