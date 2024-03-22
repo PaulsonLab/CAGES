@@ -34,7 +34,6 @@ lb = np.array([50,25,0.5,1.2,0.25])
 ub = np.array([150, 70, 3, 2.5, 1.2])
       
 cost = [1000, 100, 10, 1] 
-s = [2, 3, 4] 
 
 if ind_qual is not None:
     level_set1 = [1,2,3,4] # define level set
@@ -80,15 +79,8 @@ if ind_qual is not None:
 X = np.concatenate((X_l1, X_l2))
 X = np.concatenate((X,X_l3))
 X = np.concatenate((X,X_l4))  
- 
-X1 = X.copy()
-
-# Convert the level to s val as to calculate the function value
-X1[X1[:, -1] == 2, -1] = s[0]
-X1[X1[:, -1] == 3, -1] = s[1]
-X1[X1[:, -1] == 4, -1] = s[2]
       
-Y = fun(torch.tensor(X1)).numpy() # calculate the true function value
+Y = fun(torch.tensor(X)).numpy() # calculate the true function value
 
 LVGP_class = LVGP(X, Y, ind_qual=ind_qual, dim_z=dim_z, n_opt=n_opt, progress=False, noise=False, lb=lb, ub=ub) # define LVGP class
 model = LVGP_class.lvgp_fit(X,Y) # fit LVGP
@@ -121,8 +113,11 @@ colors = plt.cm.viridis(np.linspace(0, 1, len(xx)))
 for i in range(len(xx)):
     plt.scatter(xx[i], yy[i], color=colors[i])
     # Adding text labels for each point
-    plt.text(xx[i], yy[i], f'Level {i+1}', color='black', fontsize=9)
-
+    plt.text(xx[i]-0.003, yy[i]+0.02, r'$\ell_{'+str(i)+'}$', color='black', fontsize=9)
+       
+plt.xlim(-0.02,0.22)
+plt.ylim(-0.25,0.25)
+plt.grid(True)
 # Adding title and labels for clarity
 plt.title('Latent Variable Mapping')
 plt.xlabel('z1')
