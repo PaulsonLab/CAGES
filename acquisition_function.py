@@ -191,24 +191,24 @@ class GradientInformation_entropy():
                
         ##################################################################################################################################################
         
-        # Compute original variance (before adding theta).
+        # Compute original variance (before adding the "imaginary sampled" theta).
         KXX = self.sigma2 * self.lvgp_kernel(self.X_old_full, self.X_old_full, self.phi_full)
         KXX_inv = (np.linalg.inv(KXX + 1e-6*np.eye(len(KXX))))
         
         K_xX_dx = self._get_KxX_dx_SE(X_new_full, self.X_old_full)
         variance_d_old = self._get_Kxx_dx2()-K_xX_dx[0] @ KXX_inv @ K_xX_dx[0].T
-        # log_det_old = 2 * torch.linalg.cholesky(variance_d_old).diagonal(dim1=-2, dim2=-1).log().sum(-1) # Calculate the log determinant
-        log_det_old = np.linalg.slogdet(variance_d_old)[1]
+        # log_det_old = 2 * torch.linalg.cholesky(variance_d_old).diagonal(dim1=-2, dim2=-1).log().sum(-1) 
+        log_det_old = np.linalg.slogdet(variance_d_old)[1] # Calculate the log determinant
         
         # Compute variance after adding new data theta
-        self.X_train_new = np.concatenate((self.X_old_full, theta_new_full), axis=0)
+        self.X_train_new = np.concatenate((self.X_old_full, theta_new_full), axis=0) # add the "imaginary sampled" theta into current data set 
         KXX = self.sigma2 * self.lvgp_kernel(self.X_train_new, self.X_train_new, self.phi_full) 
         KXX_inv = (np.linalg.inv(KXX+ 1e-6*np.eye(len(KXX))))
         
         K_xX_dx = self._get_KxX_dx_SE(X_new_full, self.X_train_new)
         variance_d_new = self._get_Kxx_dx2()-K_xX_dx[0] @ KXX_inv @ K_xX_dx[0].T
-        # log_det_new = 2 * torch.linalg.cholesky(variance_d_new).diagonal(dim1=-2, dim2=-1).log().sum(-1) # Calculate the log determinant
-        log_det_new = np.linalg.slogdet(variance_d_new)[1]
+        # log_det_new = 2 * torch.linalg.cholesky(variance_d_new).diagonal(dim1=-2, dim2=-1).log().sum(-1) 
+        log_det_new = np.linalg.slogdet(variance_d_new)[1] # Calculate the log determinant
       
-        acq_val = (log_det_old - log_det_new)/cost        
+        acq_val = (log_det_old - log_det_new)/cost # Calculate acquisition function per cost: (entropy_old - entropy_new)/cost        
         return -acq_val # add minus sign because scipy does minimization
