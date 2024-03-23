@@ -326,11 +326,11 @@ class LVGP():
     
             L = cholesky(R).T
             LinvM = np.linalg.solve(L, M)
-            beta_hat = np.dot(LinvM.T, np.linalg.solve(L, Y) / np.sum(LinvM ** 2)) # M.T @ np.linalg.inv(R) @ Y / M.T @ np.linalg.inv(R) @ M
+            beta_hat = np.dot(LinvM.T, np.linalg.solve(L, Y) / np.sum(LinvM ** 2)) # M.T @ np.linalg.inv(R) @ Y / M.T @ np.linalg.inv(R) @ M (ref:https://www.jstatsoft.org/article/view/v064i12)
             beta_hat = float(beta_hat)
     
             temp = np.linalg.solve(L, Y - M*beta_hat)
-            sigma2 = np.sum(temp ** 2) / k # (Y-beta_hat).T @ np.linalg.inv(R) @ (Y-beta_hat)
+            sigma2 = np.sum(temp ** 2) / k # (Y-beta_hat).T @ np.linalg.inv(R) @ (Y-beta_hat) (ref:https://www.jstatsoft.org/article/view/v064i12)
             if sigma2 < 1e-300:
                 sigma2 = 1e-300
     
