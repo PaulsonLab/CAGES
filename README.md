@@ -5,7 +5,7 @@ Multi-Fidelity Bayesian Optimization
 Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106.11899) and [LVGP's codebase](https://arxiv.org/abs/1806.07504). More detail can be found in their repository ([GIBO](https://github.com/sarmueller/gibo/tree/main))([LVGP-python implementation](https://github.com/balaranjan/LVGP/tree/main))([LVGP-matlab implementation](https://doi.org/10.1080/00401706.2019.1638834)).
 
 # Codes for the repo
-[cartpole](https://github.com/PaulsonLab/CAGES/blob/1c9525c7246ac3c7511f79fa02d784f689c59aed/cartpole.py) : Please replace this file with the original cartpole.py file inside the gymnasium package (~/gymnasium/envs/classic_control/cartpole.py) to enable the changes of step time (tau).\
+[cartpole](https://github.com/PaulsonLab/CAGES/blob/1c9525c7246ac3c7511f79fa02d784f689c59aed/cartpole.py) : Please replace the original cartpole.py file inside the gymnasium package (~/gymnasium/envs/classic_control/cartpole.py) with this file to enable the changes of step time (tau).\
 [src\environment_api](https://github.com/PaulsonLab/CAGES/blob/48ca4862a56500a48b9537c3e8df5c0817c4a78e/src/environment_api.py): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
 [RL_function](https://github.com/PaulsonLab/CAGES/blob/17c76eec1deb53155084a1522d5428578c45aabc/RL_function.py): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
 [acquisition_function](https://github.com/PaulsonLab/CAGES/blob/ffcbda478eebcaa821d21dd29a04d67ec764e90a/acquisition_function.py): Custom entropy-based acquisition function for gradient information.\

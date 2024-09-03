@@ -27,7 +27,7 @@ from pyDOE2 import lhs
 if __name__ == '__main__':
      
     replicate = 10
-    replicate_list = [10, 40, 50, 80, 90, 140, 170, 210, 220, 280]
+    replicate_list = [10, 40, 50, 80, 90, 140, 170, 210, 220, 280] # user can specify any random seed they want to test
     norm_list = [[] for _ in range((replicate))]
     cost_list = [[] for _ in range((replicate))] 
     best_Y_list = [[] for _ in range((replicate))] 
