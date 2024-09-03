@@ -69,7 +69,8 @@ python Plotting_new.py
 ```
 Here is an example plot for the Rosenbrock problem that user can reproduce based on the np files under ~\Results\Rosenbrock:
 
-<img src='figure/Rosenbrock.png' width='400'>
+<img src='figure/Rosenbrock_regret.png' width='400'>
+<img src='figure/Cartpole_regret.png' width='400'>
 
 # Reference
 [1] Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.\
