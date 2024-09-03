@@ -6,7 +6,6 @@ Multi-Fidelity Bayesian Optimization](https://arxiv.org/abs/2405.07760). The pap
 [cartpole](https://github.com/PaulsonLab/CAGES/blob/1c9525c7246ac3c7511f79fa02d784f689c59aed/cartpole.py) : Please replace the original cartpole.py file inside the gymnasium package (~/gymnasium/envs/classic_control/cartpole.py) with this file to enable the changes of step time (tau).\
 [src\environment_api](https://github.com/PaulsonLab/CAGES/blob/48ca4862a56500a48b9537c3e8df5c0817c4a78e/src/environment_api.py): Interface for interactions with reinforcement learning environments of OpenAI Gym.\
 [RL_function_new](https://github.com/PaulsonLab/CAGES/blob/bbfa02101bb79ea3856949ae180d809493f021bd/RL_function_new.py): Function that takes policy parameters and qualatative variable as input and return the reward for the RL problem.\
-[acquisition_function](https://github.com/PaulsonLab/CAGES/blob/ffcbda478eebcaa821d21dd29a04d67ec764e90a/acquisition_function.py): Custom entropy-based acquisition function for gradient information.\
 [test_function](https://github.com/PaulsonLab/CAGES/blob/96d4cb9009895b2f90c90823bb91f333cebe4880/test_function.py): Test problem studied in this paper, including multi-information sources Rosenbroc.
 
 # Usage
