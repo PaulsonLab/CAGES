@@ -90,9 +90,9 @@ posterior = model.posterior(test_X)
 mean = (posterior.mean).detach().numpy() # posterior mean for GP (predicted value)
 
 # Plotting
-plt.scatter(Y_te, mean, label='Mixed SingleTask GP')
+plt.scatter(Y_te, mean, label='MixedSingleTask GP',s=0.7)
 plt.plot([min(Y_te), max(Y_te)], [min(Y_te), max(Y_te)], 'k--') 
 plt.xlabel('True value')
 plt.ylabel('predicted value')
-plt.title('Parity Plot (Mixed SingleTask GP)')
+plt.title('Parity Plot (12D Rosenbrock)')
 plt.grid(True)
