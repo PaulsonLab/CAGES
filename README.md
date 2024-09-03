@@ -13,7 +13,7 @@ We provide the code scripts for executing different BO algorithm including [Vani
 
 MixedSingleTask GP fitting
 ------------------------------
-Run the following command to fit a [MixedSingleTask model](https://botorch.org/api/models.html#botorch.models.gp_regression_mixed.MixedSingleTaskGP) with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 2 level) Rosenbrock function.
+Run the following command to fit a [MixedSingleTask model](https://botorch.org/api/models.html#botorch.models.gp_regression_mixed.MixedSingleTaskGP) with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 2 level) 12D Rosenbrock function trained with 160 data (80 for each information source).
 A parity plot will be generated. 
 ```sh
 python Parity_MixedSingleTask_Rosenbrock.py
