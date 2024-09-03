@@ -65,7 +65,7 @@ Plotting Results
 Please run the following command to load saved numpy files and generate plots. User may need to modify the path to load the file.
 ```sh
 cd Plotting
-python Plotting.py
+python Plotting_new.py
 ```
 Here is an example plot for the Rosenbrock problem that user can reproduce based on the np files under ~\Results\Rosenbrock:
 
