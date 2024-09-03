@@ -11,6 +11,18 @@ Multi-Fidelity Bayesian Optimization](https://arxiv.org/abs/2405.07760). The pap
 # Usage
 We provide the code scripts for executing different BO algorithm including [Vanillo BO](https://botorch.org/), GIBO [[2]](https://proceedings.neurips.cc/paper_files/paper/2021/hash/ad0f7a25211abc3889cb0f420c85e671-Abstract.html), and CAGES. Augmented random search algorithm (ARS) [[3]](https://proceedings.neurips.cc/paper/2018/hash/7634ea65a4e6d9041cfd3f7de18e334a-Abstract.html) is also provided.
 
+MixedSingleTask GP fitting
+------------------------------
+Run the following command to fit a [MixedSingleTask model](https://botorch.org/api/models.html#botorch.models.gp_regression_mixed.MixedSingleTaskGP) with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 2 level) Rosenbrock function.
+A parity plot will be generated. 
+```sh
+python Parity_MixedSingleTask_Rosenbrock.py
+```
+
+User should get the following figure by executing the above command.
+
+<img src='figure/parity.png' width='400'>
+
 Vanilla BO
 ------------------------------
 Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, OTL, or Cartpole) to be optimized in line 31-33.
