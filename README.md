@@ -11,19 +11,6 @@ Multi-Fidelity Bayesian Optimization](https://arxiv.org/abs/2405.07760). The pap
 # Usage
 We provide the code scripts for executing different BO algorithm including [Vanillo BO](https://botorch.org/), GIBO [[2]](https://proceedings.neurips.cc/paper_files/paper/2021/hash/ad0f7a25211abc3889cb0f420c85e671-Abstract.html), and CAGES. Augmented random search algorithm (ARS) [[3]](https://proceedings.neurips.cc/paper/2018/hash/7634ea65a4e6d9041cfd3f7de18e334a-Abstract.html) is also provided.
 
-LVGP fitting
-------------------------------
-Run the following command to fit a LVGP model with specified test function and training/testing data. Example contains the multi-information sources (1 qualatative variable with 4 level) OTL function.
-A parity plot and an estimated 2D LVs z = (z1, z2) plot will be generated. 
-```sh
-python Parity_Mapping_LVGP.py
-```
-
-User should get the following two figures by executing the above command.
-
-<img src='figure/parity.png' width='400'>
-<img src='figure/latent_mapping.png' width='400'>
-
 Vanilla BO
 ------------------------------
 Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, OTL, or Cartpole) to be optimized in line 31-33.
