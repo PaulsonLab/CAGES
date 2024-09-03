@@ -2,7 +2,7 @@
 This repo contains the code that can reproduce experimental results in [Cost-Aware Gradient Entropy Search for Efficient Local
 Multi-Fidelity Bayesian Optimization](https://arxiv.org/abs/2405.07760). The paper has been accepted to the 63rd IEEE Conference on Decision and Control (CDC)
 
-Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106.11899) and [LVGP's codebase](https://arxiv.org/abs/1806.07504). More detail can be found in their repository ([GIBO](https://github.com/sarmueller/gibo/tree/main))([LVGP-python implementation](https://github.com/balaranjan/LVGP/tree/main))([LVGP-matlab implementation](https://doi.org/10.1080/00401706.2019.1638834)).
+#Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106.11899) and [LVGP's codebase](https://arxiv.org/abs/1806.07504). More detail can be found in their repository ([GIBO]#(https://github.com/sarmueller/gibo/tree/main))([LVGP-python implementation](https://github.com/balaranjan/LVGP/tree/main))([LVGP-matlab implementation](https://doi.org/10.1080/00401706.2019.1638834)).
 
 # Codes for the repo
 [cartpole](https://github.com/PaulsonLab/CAGES/blob/1c9525c7246ac3c7511f79fa02d784f689c59aed/cartpole.py) : Please replace the original cartpole.py file inside the gymnasium package (~/gymnasium/envs/classic_control/cartpole.py) with this file to enable the changes of step time (tau).\
