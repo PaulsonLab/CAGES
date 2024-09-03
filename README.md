@@ -21,7 +21,7 @@ python Parity_MixedSingleTask_Rosenbrock.py
 
 User should get the following figure by executing the above command.
 
-<img src='figure/parity.png' width='400'>
+<img src='figure/Rosenbrock_parity.png' width='400'>
 
 Vanilla BO
 ------------------------------
