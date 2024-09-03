@@ -1,6 +1,6 @@
 # CAGES
-Cost-Aware Gradient Entropy Search for Efficient Local
-Multi-Fidelity Bayesian Optimization
+This repo contains the code that can reproduce experimental results in [Cost-Aware Gradient Entropy Search for Efficient Local
+Multi-Fidelity Bayesian Optimization](https://arxiv.org/abs/2405.07760).
 
 Our code implementation extends the [GIBO's codebase](https://arxiv.org/abs/2106.11899) and [LVGP's codebase](https://arxiv.org/abs/1806.07504). More detail can be found in their repository ([GIBO](https://github.com/sarmueller/gibo/tree/main))([LVGP-python implementation](https://github.com/balaranjan/LVGP/tree/main))([LVGP-matlab implementation](https://doi.org/10.1080/00401706.2019.1638834)).
 
