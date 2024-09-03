@@ -52,14 +52,6 @@ Two numpy files (Rosenbrock_cost_CAGES.np/Rosenbrock_reward_CAGES.np) will be sa
 python CAGES_Rosenbrock.py
 ```
 
-Run the following command to execute CAGES for the multi-information OTL test problem.
-
-Two numpy files (OTL_cost_CAGES.np/OTL_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
-
-```sh
-python CAGES_OTL.py
-```
-
 Run the following command to execute CAGES for the multi-information Cartpole RL control problem.
 
 Two numpy files (cartpole_cost_CAGES.np/cartpole_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
