@@ -6,12 +6,48 @@ Created on Wed Feb 21 12:52:07 2024
 @author: tang.1856
 """
 import torch
-
+class OTL2():
+    def __init__(self,dim, negate=False, LVGP=True):
+        self.dim = dim
+        self.negate = negate
+        self.LVGP = LVGP
+        
+    def __call__(self,X):
+        Rb1 = X[..., 0:1]
+        Rb2 = X[..., 1:2]
+        #Rf = X[..., 2:3]
+        Rc1 = X[..., 2:3]
+        Rc2 = X[..., 3:4]
+        B = 50
+        if self.LVGP:
+            s = [0.5,1.2,2.1,2.9]
+            # B = X[..., 5:6]*50
+            X[X[:, -1] == 1, -1] = s[0]
+            X[X[:, -1] == 2, -1] = s[1]
+            X[X[:, -1] == 3, -1] = s[2]
+            X[X[:, -1] == 4, -1] = s[3]
+            Rf = X[..., 4:5]
+            
+        else:
+            B = 50
+        
+        Vb1 = 12*Rb2/(Rb1+Rb2)
+        
+        if self.negate:
+            fun_val = B * (Vb1+0.74)*(Rc2+9)/(B*(Rc2+9)+Rf) + 11.35*Rf/(B*(Rc2+9) + Rf) + 0.74*B*Rf*(Rc2+9)/(Rc1*(B*(Rc2+9)+Rf))
+            fun_val*=-1
+        else:
+            fun_val = B * (Vb1+0.74)*(Rc2+9)/(B*(Rc2+9)+Rf) + 11.35*Rf/(B*(Rc2+9) + Rf) + 0.74*B*Rf*(Rc2+9)/(Rc1*(B*(Rc2+9)+Rf))
+        
+        return fun_val.squeeze(1)
+    
 class Rosenbrock():
-    def __init__(self,dim, LVGP=True):
+    def __init__(self,dim, LVGP=True, negate=True):
         self.dim=dim
         self.LVGP = LVGP
+        self.negate = negate
     def __call__(self,X):
+        X = X.clone()
         X[X[:, -1] == 2, -1] = 0.9
         fun_val = 0
         for d in range(1,self.dim):
@@ -27,6 +63,8 @@ class Rosenbrock():
            
             t2 = (X_curr - 1) ** 2
             fun_val+=((t1 + t2).sum(dim=-1))
+        if self.negate:
+            fun_val = fun_val*-1
         return fun_val
     
     

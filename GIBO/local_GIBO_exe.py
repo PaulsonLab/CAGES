@@ -13,10 +13,11 @@ import matplotlib.pyplot as plt
 from Algorithm import GIBO, ARS
 from botorch.test_functions.synthetic import Rosenbrock
 import sys
-sys.path.append('/home/tang.1856/Jonathan/LVGP/LVGP-main') # add the path
-from RL_function import RL_fun
-from pyDOE import lhs
-from test_function import Borehole, OTL, Piston
+# sys.path.append('/home/tang.1856/Jonathan/LVGP/LVGP-main') # add the path
+sys.path.append('/home/tang.1856/CAGES/GIBO')
+from RL_function_new import RL_fun
+from pyDOE2 import lhs
+# from test_function import Borehole, OTL, Piston
 
 tkwargs = {
     "device": torch.device("cuda" if torch.cuda.is_available() else "cpu"),
@@ -30,28 +31,29 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
    
 if __name__ == "__main__": 
            
-    replicate = 10   
+    replicate = 20   
     replicate_list = [10, 40, 50, 80, 90, 140, 170, 210, 220, 280] # random replicate list
     
     # select which problem we want to optimize
-    RL = False  
-    rosenbrock = True
+    RL = True
+    rosenbrock = False
     otl = False
     
-    gibo = True # if False, execute ARS
+    gibo = False # if False, execute ARS
    
     reward_gibo_list, cost_list_gibo = [[] for _ in range((replicate))], [[] for _ in range((replicate))]   
         
     for seed in range(replicate):
                       
         if RL: # Cartpole Problem
-            dim = 4 
-            np.random.seed((replicate_list[seed])*1) 
+            dim = 10
+            # np.random.seed((replicate_list[seed])*1) 
+            np.random.seed(seed)
             
             if gibo:
-                N_func_evaluation = 10
-                N_INIT = 5 # initial training data point -1                         
-                X = torch.tensor(lhs(dim, samples=N_INIT))   
+                N_func_evaluation = 5
+                N_INIT = 12 # initial training data point -1                         
+                X = torch.tensor(lhs(dim, samples=N_INIT, random_state=seed))   
             else:
                 N_func_evaluation = 15
                 N_INIT = 0 # ARS doesn't require any initial data to fit surrogate
@@ -64,13 +66,13 @@ if __name__ == "__main__":
             init_x = (0.75*torch.ones(dim)).unsqueeze(0) # starting point for the algorithm (GIBO's paper start with the mid-point)
             lb = -1*torch.ones(dim) # lower bound for the variables
             ub = 1*torch.ones(dim) # upper bound for the variables
-            objective = RL_fun(dim = dim, LVGP=False, negate=False) # define objective function
+            objective = RL_fun(dim = dim, LVGP=False) # define objective function
             
         elif rosenbrock:
-            dim = 6            
+            dim = 12           
             if gibo:
                 N_INIT = 4 
-                N_func_evaluation = 10
+                N_func_evaluation = 15
             else:
                 N_INIT = 0
                 N_func_evaluation = 15
@@ -80,8 +82,9 @@ if __name__ == "__main__":
             step_size = 0.25
             np.random.seed((seed)*1)
             init_x = torch.tensor(0.2+0.6*np.random.rand(1,dim)) 
-            np.random.seed((seed)*1)
+            # np.random.seed((seed)*1)
             X = torch.tensor(np.random.rand(N_INIT,dim))
+            # X = torch.tensor(lhs(dim, samples = N_INIT, random_state=seed))
             lb = 0*torch.ones(dim)
             ub = 2*torch.ones(dim)
             objective = Rosenbrock(dim=dim, negate=True)
@@ -140,11 +143,11 @@ if __name__ == "__main__":
     
     # Save the results
     if gibo:
-        np.save('GIBO.npy',xx)
-        np.save('GIBO.npy',xx)
+        np.save('GIBO_HF_Rosenbrock_cost.npy',xx)
+        np.save('GIBO_HF_Rosenbrock_reward.npy',yy)
     else:
-        np.save('ARS.npy',xx)
-        np.save('ARS.npy',xx)
+        np.save('ARS_Cartpole_cost.npy',xx)
+        np.save('ARS_Cartpole_reward.npy',yy)
         
                     
            

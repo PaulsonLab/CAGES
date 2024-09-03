@@ -101,7 +101,7 @@ class GIBO(): # This class contains all gradient-based algorithm
             self.gp.likelihood, self.gp
         )
         
-        botorch.fit.fit_gpytorch_model(mll)
+        botorch.fit.fit_gpytorch_mll(mll)
         
         self.gp.posterior(
             self.params
@@ -116,7 +116,7 @@ class GIBO(): # This class contains all gradient-based algorithm
               
         # inner loop for GIBO (enhance gradient information)
         acq_value_old = None
-        max_samples_per_iteration = self.dim
+        max_samples_per_iteration = int(0.5*self.dim)
         for i in range(max_samples_per_iteration):
             
             new_x, acq_value = optimize_acqf_custom_bo(self.acquisition_fcn, bounds, q=1, num_restarts = 5, raw_samples = 20)
@@ -198,7 +198,151 @@ class GIBO(): # This class contains all gradient-based algorithm
                 self.params[self.params<0] = 0
                 self.params[self.params>1] = 1
 
-
+class GIBO_LF(): # This class contains all gradient-based algorithm
+    def __init__(self, objective, objective_HF, dim, delta, lr, epsilon_diff_acq_value, lb,ub, Ninit, reward_list, cost_list):
+        self.objective = objective
+        self.objective_HF = objective_HF
+        self.dim = dim
+        self.delta = delta
+        self.epsilon_diff_acq_value = epsilon_diff_acq_value
+        self.normalize_gradient: bool = True,
+        self.standard_deviation_scaling: bool = False,
+        self.lr_schedular = None
+        self.lr = lr
+        self.Ninit = Ninit
+        self.lb = lb
+        self.ub = ub
+        self.reward_list = reward_list
+        self.cost_list = cost_list
+             
+    def __call__(self, X, Y, params):
+        torch.manual_seed(1)
+        
+        self.lb = self.lb.to("cpu")
+        self.ub = self.ub.to("cpu")
+        X = X.to(**tkwargs)
+        if Y.size(-1) != len(Y):
+            Y = Y.to(**tkwargs).squeeze(-1)
+        else:
+            Y = Y.to(**tkwargs)
+              
+        self.params = params.to(**tkwargs)
+       
+        self.optimizer_torch = torch.optim.SGD([self.params],lr=self.lr)
+        
+        self.gp = DerivativeExactGPSEModel(self.dim, ard_num_dims=self.dim)
+        self.gp.append_train_data(X, Y)
+        self.acquisition_fcn = GradientInformation(self.gp)
+        
+        self.gp.posterior(self.params) # Call this to update prediction strategy of GPyTorch (get_L_lower, get_K_XX_inv)
+        self.acquisition_fcn.update_theta_i(self.params)
+        
+        bounds = torch.tensor([[-self.delta], [self.delta]]) + self.params
+        bounds[bounds<0] = 0
+        bounds[bounds>1] = 1
+        bounds = bounds.to("cpu")
+        
+        # train GP
+        mll = gpytorch.mlls.ExactMarginalLogLikelihood(
+            self.gp.likelihood, self.gp
+        )
+        
+        botorch.fit.fit_gpytorch_mll(mll)
+        
+        self.gp.posterior(
+            self.params
+        )  # Call this to update prediction strategy of GPyTorch.
+        
+        lengthscale = self.gp.covar_module.base_kernel.lengthscale
+        print('lengthscale:', lengthscale)
+        # print('output scale:', self.gp.covar_module.outputscale)
+        # print('noise:', self.gp.likelihood.noise)
+        
+        self.acquisition_fcn.update_theta_i(self.params) 
+              
+        # inner loop for GIBO (enhance gradient information)
+        acq_value_old = None
+        max_samples_per_iteration = int(0.5*self.dim)
+        for i in range(max_samples_per_iteration):
+            
+            new_x, acq_value = optimize_acqf_custom_bo(self.acquisition_fcn, bounds, q=1, num_restarts = 5, raw_samples = 20)
+            new_y = self.objective(self.lb + (self.ub - self.lb) *new_x)
+            
+            if new_y.max() > Y.max():
+                ind_best = new_y.argmax()               
+                print(
+                    f"New best query: {new_y[ind_best].item():.3f}"
+                )
+                
+            X = torch.cat((new_x, X))
+            Y = torch.cat((new_y, Y))
+            new_y_HF = self.objective_HF(self.lb + (self.ub - self.lb) *new_x)
+            self.reward_list.append(float(max(new_y_HF, self.reward_list[-1])))
+            self.cost_list.append(len(X))
+            
+            self.gp.append_train_data(new_x, new_y)
+            self.gp.posterior(self.params)
+            self.acquisition_fcn.update_K_xX_dx()
+            
+                           
+            if acq_value_old is not None:
+                diff = acq_value - acq_value_old
+                if diff < self.epsilon_diff_acq_value:
+                    print(f"Stop sampling after {i+1} samples, since gradient certainty is {diff}.")
+                    break
+                
+            acq_value_old = acq_value
+       
+        mean_d, variance_d = self.gp.posterior_derivative(self.params) # gradient predicted by GP
+        print('gradient GP=', mean_d*Y.std()/(self.ub-self.lb))
+        
+        
+        self.move_gibo(method="step")
+        Y_next = torch.cat([self.objective(self.lb + (self.ub - self.lb) *self.params)])   
+        
+        X = torch.cat((self.params,X))
+        Y = torch.cat((Y_next,Y))    
+        Y_next_HF = self.objective_HF(self.lb + (self.ub - self.lb) *self.params)
+        self.reward_list.append(float(max(Y_next_HF, self.reward_list[-1])))
+        self.cost_list.append(len(X))
+      
+        if Y_next.max() > Y[1:].max():
+            ind_best = Y_next.argmax()          
+            print(
+                f"New best moving: {Y_next[ind_best].item():.3f}"
+            )
+                
+        return X, Y, (self.params.flatten()).unsqueeze(0), self.reward_list, self.cost_list
+    
+    
+    def move_gibo(self, method):
+        if method == "step":
+            with torch.no_grad():
+                self.optimizer_torch.zero_grad()
+                self.params.grad = torch.zeros_like(self.params)
+                mean_d, variance_d = self.gp.posterior_derivative(self.params)
+                params_grad = -mean_d.view(1, self.dim)
+                if self.normalize_gradient:
+                    lengthscale = (
+                        self.gp.covar_module.base_kernel.lengthscale.detach()
+                    )
+                    params_grad = (
+                        torch.nn.functional.normalize(params_grad) * lengthscale
+                    )
+                # if self.standard_deviation_scaling:
+                #     params_grad = params_grad / torch.diag(
+                #         variance_d.view(self.dim, self.dim)
+                #     )
+                if self.lr_schedular:
+                    lr = [
+                        v for k, v in self.lr_schedular.items() if k <= self.iteration
+                    ][-1]
+                    self.params.grad[:] = lr * params_grad  # Define as gradient ascent.
+                else:
+                    self.params.grad[:] = params_grad  # Define as gradient ascent.
+                self.optimizer_torch.step()
+                self.params[self.params<0] = 0
+                self.params[self.params>1] = 1
 class ARS():
     def __init__(self, objective, lb, ub, reward_list, cost_list, samples_per_iteration=1, exploration_noise=0.02, step_size=0.025,  num_top_directions=4, standard_deviation_scaling=True):
         self.lb = lb
