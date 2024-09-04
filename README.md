@@ -44,6 +44,7 @@ python local_GIBO_exe.py
 
 CAGES
 ------------------------------
+Run the [CAGES notebook]() to execute CAGES for the multi-information Rosenbrock test problem.
 Run the following command to execute CAGES for the multi-information Rosenbrock test problem.
 
 Two numpy files (Rosenbrock_cost_CAGES.np/Rosenbrock_reward_CAGES.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
