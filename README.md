@@ -55,7 +55,7 @@ Two numpy files (cartpole_cost_CAGES.np/cartpole_reward_CAGES.np) will be saved 
 python CAGES_RL.py
 ```
 
-Run the following [CAGES-LVGP](https://github.com/PaulsonLab/CAGES/blob/b0345b2c1ba098f3d618fb333706ceaf918e45b4/CAGES-LVGP/CAGES_Rosenbrock.py) to execute CAGES with Latent variable Gaussian process (LVGP) [[3]](https://www.tandfonline.com/doi/full/10.1080/00401706.2019.1638834) on the multi-information Rosenbrock test problem.
+Run the [CAGES-LVGP](https://github.com/PaulsonLab/CAGES/blob/b0345b2c1ba098f3d618fb333706ceaf918e45b4/CAGES-LVGP/CAGES_Rosenbrock.py) to execute CAGES with Latent variable Gaussian process (LVGP) [[3]](https://www.tandfonline.com/doi/full/10.1080/00401706.2019.1638834) on the multi-information Rosenbrock test problem.
 
 Plotting Results
 ------------------------------
