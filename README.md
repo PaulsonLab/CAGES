@@ -55,6 +55,8 @@ Two numpy files (cartpole_cost_CAGES.np/cartpole_reward_CAGES.np) will be saved 
 python CAGES_RL.py
 ```
 
+Run the following [CAGES-LVGP](https://github.com/PaulsonLab/CAGES/blob/b0345b2c1ba098f3d618fb333706ceaf918e45b4/CAGES-LVGP/CAGES_Rosenbrock.py) to execute CAGES with Latent variable Gaussian process (LVGP) [[3]](https://www.tandfonline.com/doi/full/10.1080/00401706.2019.1638834) on the multi-information Rosenbrock test problem.
+
 Plotting Results
 ------------------------------
 Please run the following command to load saved numpy files and generate plots. User may need to modify the path to load the file.
@@ -70,3 +72,4 @@ Here are example plots for the Rosenbrock and Cartpole problem that user can rep
 # Reference
 [1] Müller, S., von Rohr, A., & Trimpe, S. (2021). Local policy search with Bayesian optimization. Advances in Neural Information Processing Systems, 34, 20708-20720.\
 [2] Mania, H., Guy, A., & Recht, B. (2018). Simple random search of static linear policies is competitive for reinforcement learning. Advances in neural information processing systems, 31.
+[3] Zhang, Y., Tao, S., Chen, W., & Apley, D. W. (2020). A latent variable approach to Gaussian process modeling with qualitative and quantitative factors. Technometrics, 62(3), 291-302.
