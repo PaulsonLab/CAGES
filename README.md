@@ -25,7 +25,7 @@ User should get the following figure by executing the above command.
 
 Vanilla BO
 ------------------------------
-Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, or Cartpole) to be optimized in line 31-33.
+Run the following command to execute vanilla BO with expected imrpovement. User can specify which problem (Rosenbrock, or Cartpole) to be optimized in line 32-33.
 
 Two numpy files (EI_cost.np/EI_reward.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 ```sh
