@@ -34,7 +34,7 @@ python Vanilla_BO.py
 
 GIBO and ARS
 ------------------------------
-Run this following command to execute GIBO or ARS algorithm. User can specify which problem (Rosenbrock, or Cartpole) to be optimized in line 37-39 and specify GIBO or ARS in line 41.
+Run this following command to execute GIBO or ARS algorithm. User can specify which problem (Rosenbrock, or Cartpole) to be optimized in line 38-39 and specify GIBO or ARS in line 41.
 
 Two numpy files (GIBO_cost.np/GIBO_reward.np) will be saved in user's local directory including the accumulated cost and best found value per iteration.
 ```sh
